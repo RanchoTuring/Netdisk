@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线网盘</title>
+    <script src="getUser.js"></script>
+    <style>
+        .menu {
+            display: flex;
+            width: 100%;
+            background: #1e272e;
+        }
+
+        .logo {
+            flex: auto;
+            font-size: 30px;
+            padding: 10px 50px;
+            color: white;
+        }
+
+        .menuItems {
+            flex: auto;
+            justify-content: flex-end;
+            display: flex;
+        }
+
+        .menuItem:hover {
+            background: #ff3f34;
+        }
+
+        .menuItem {
+            font-size: 20px;
+            font-weight: lighter;
+            text-decoration: none;
+            color: white;
+            padding: 20px 50px;
+        }
+
+        body {
+            background-image: url("https://pan.baidu.com/static/images/16new/bg3.jpg");
+            background-size: cover;
+            background-position-y: 65px;
+            margin: 0;
+            font-family:"Microsoft YaHei UI";
+        }
+
+        .card {
+
+            position: absolute;
+            top: 53%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 95%;
+            height: 85%;
+            background: white;
+            border-radius: 10px;
+            box-shadow: #111111 1px 1px 10px;
+            overflow: hidden;
+        }
+
+        form {
+            margin: 30px 30px 0;
+        }
+
+        .title {
+            justify-content: center;
+            font-size: 25px;
+            font-weight: bold;
+            display: flex;
+            margin: 25px auto;
+            color:#64b5f6;
+        }
+
+        input[type="text"], input[type="password"] {
+            display: block;
+            font-size: 15px;
+            width: 300px;
+            padding: 14px 10px;
+            outline: none;
+            border: solid 1px #d2dae2;
+            text-align: left;
+            margin: 5px 0;
+        }
+
+
+
+        input[type="submit"] {
+            display: block;
+            padding: 12px 140px;
+            border-radius: 5px;
+            font-size: 15px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            background: #0fbcf9;
+            color: white;
+            margin: auto;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="menu">
+    <div class="logo">
+        在线网盘
+    </div>
+    <div class="menuItems">
+        <text id="username" class="menuItem" href=""></text>
+        <text id="logout" class="menuItem" onclick="logout()"> 退出登录</text>
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="title">文件列表</div>
+
+</div>
+
+</body>
+</html>

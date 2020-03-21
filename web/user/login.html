@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>在线网盘</title>
+  <style>
+    .menu {
+      display: flex;
+      width: 100%;
+      background: #1e272e;
+    }
+
+    .logo {
+      flex: auto;
+      font-size: 30px;
+      padding: 10px 50px;
+      color: white;
+    }
+
+    .menuItems {
+      flex: auto;
+      justify-content: flex-end;
+      display: flex;
+    }
+
+    .menuItem:hover {
+      background: #ff3f34;
+    }
+
+    .menuItem {
+      font-size: 20px;
+      font-weight: lighter;
+      text-decoration: none;
+      color: white;
+      padding: 20px 50px;
+    }
+
+    body {
+      background-image: url("https://pan.baidu.com/static/images/16new/bg3.jpg");
+      background-size: cover;
+      background-position-y: 65px;
+      margin: 0;
+      font-family:"Microsoft YaHei UI";
+    }
+
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border-radius: 10px;
+      box-shadow: #111111 1px 1px 10px;
+      overflow: hidden;
+    }
+    .content:before{
+      content: "“";
+      color: #d2dae2;
+      font-size: 70px;
+      font-weight: bold;
+    }
+    .content{
+      color: white;
+      position: absolute;
+      top:50%;
+      left: 15%;
+      font-size: 50px;
+
+    }
+    .content:after{
+      content: "”";
+      color: #d2dae2;
+      font-size: 70px;
+      font-weight: bold;
+    }
+    form {
+      margin: 30px 30px 0;
+    }
+
+    .title {
+      justify-content: center;
+      font-size: 25px;
+      font-weight: bold;
+      display: flex;
+      margin: 0 auto 25px;
+    }
+
+    input[type="text"], input[type="password"] {
+      display: block;
+      font-size: 15px;
+      width: 300px;
+      padding: 14px 10px;
+      outline: none;
+      border: solid 1px #d2dae2;
+      text-align: left;
+      margin: 5px 0;
+    }
+
+    .remember {
+      display: block;
+      font-size: 13px;
+      margin: 15px 0;
+    }
+
+    input[type="submit"] {
+      display: block;
+      padding: 12px 140px;
+      border-radius: 5px;
+      font-size: 15px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      background: #0fbcf9;
+      color: white;
+      margin: auto;
+    }
+
+    .function {
+      margin: 20px 0 0;
+      background: rgba(213, 233, 250, 0.58);
+      padding: 20px;
+    }
+
+    .funcItem {
+      font-size: 17px;
+      font-weight: lighter;
+      text-decoration: none;
+      padding: 40px;
+      color: #0fbcf9;
+    }
+  </style>
+</head>
+<body>
+<div class="menu">
+  <div class="logo">
+    在线网盘
+  </div>
+  <div class="menuItems">
+    <a class="menuItem" href="../info/money.html" style="color:white;">打赏开发者</a>
+    <a class="menuItem" href="../info/techSupport.html" style="color:white;">技术支持</a>
+    <a class="menuItem" href="../info/about.html" style="color:white;">关于我们</a>
+  </div>
+</div>
+<div class="content">多端并用<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据随身携带</div>
+<div class="card">
+  <form action="userLogin" method="post">
+    <div class="title">账号密码登录</div>
+    <input name="username" type="text" placeholder="用户名">
+    <input name="password" type="password" placeholder="密码">
+    <label class="remember">
+      <input type="checkbox" name="remember">下次自动登录
+    </label>
+    <input type="submit" value="登录">
+  </form>
+  <div class="function">
+    <a class="funcItem" href="register.html">立即注册</a>
+    <a class="funcItem" href="">忘记密码</a>
+  </div>
+</div>
+
+</body>
+</html>
