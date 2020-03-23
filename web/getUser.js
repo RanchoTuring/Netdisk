@@ -3,6 +3,7 @@ ajax.onreadystatechange=function(){
     if(ajax.readyState==4 && ajax.status==200){
         //做什么
         document.getElementById("username").innerText=ajax.responseText;
+        document.cookie="username="+ajax.responseText;
     }
 };
 

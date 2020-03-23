@@ -26,7 +26,7 @@ public class DBUtil {
     public static Connection getConnection(String DB){
         try {
             //获得数据库链接
-            connection= DriverManager.getConnection("jdbc:mysql://localhost:2333/"+DB+"?serverTimezone=UTC","root","");
+            connection= DriverManager.getConnection("jdbc:mysql://localhost:2333/"+DB+"?serverTimezone=Asia/Shanghai","root","");
         } catch (SQLException e) {
             e.printStackTrace();
         }
