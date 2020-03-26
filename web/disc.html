@@ -26,6 +26,13 @@
             margin: 25px auto;
             color:#64b5f6;
         }
+        .fileTable{
+            width: 80%;
+            border: #d2dae2 solid;
+            margin: auto;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -40,6 +47,14 @@
 </div>
 <div class="card">
     <div class="title">文件列表</div>
+
+    //
+
+    <table id="fileList" class="fileTable">
+        <tr class="tableHeader"><th>文件名称</th><th>文件大小</th><th>上传时间</th></tr>
+
+    </table>
+
     <form action="upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file">
         <input type="submit" value="开始上传">

@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -6,13 +6,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 @MultipartConfig
 @WebServlet(name = "FileUpload",urlPatterns = "/upload")
 public class FileUpload extends HttpServlet {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setCharacterEncoding("utf-8");
@@ -22,7 +22,7 @@ public class FileUpload extends HttpServlet {
         Cookie[] cookies=request.getCookies();
 
         for(Cookie cookie:cookies){
-            if(cookie.getName().equals("username")){
+            if("username".equals(cookie.getName())){
                 username=cookie.getValue();
             }
         }
@@ -48,7 +48,7 @@ public class FileUpload extends HttpServlet {
         //-----------------------------------  更新数据库信息  ---------------------
 
         //获取数据库连接
-        Connection connection=DBUtil.getConnection("netdisc");
+        Connection connection=DbUtil.getConnection("netdisc");
 
         try {
             Statement statement=connection.createStatement();

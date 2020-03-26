@@ -1,7 +1,7 @@
 package user;
 
-import Model.DBUtil;
-import Utils.Encoder;
+import model.DbUtil;
+import utils.Encoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +16,7 @@ import java.sql.Statement;
 
 @WebServlet(name = "LoginController",urlPatterns = "/user/userLogin")
 public class LoginController extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username=request.getParameter("username");
         String password=request.getParameter("password");
@@ -26,7 +27,7 @@ public class LoginController extends HttpServlet {
         password= Encoder.encodeBase64(password);
 
         //链接数据库  查询  有没有用户名跟密码相同的用户，返回他的信息
-        Connection connection= DBUtil.getConnection("netdisc");
+        Connection connection= DbUtil.getConnection("netdisc");
         try {
             Statement statement=connection.createStatement();
             ResultSet resultSet=statement.executeQuery("select count(*) from user where username=\""+username+"\" and password=\""+password+"\";");

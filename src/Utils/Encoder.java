@@ -1,10 +1,11 @@
-package Utils;
+package utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
 public class Encoder {
+
 
     public static String encodeBase64(String data) {
         MessageDigest md= null;
