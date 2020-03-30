@@ -13,14 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
-/**
- * @author
- *
- */
 
+/**
+ *  网盘文件列表接口
+ */
 @WebServlet(name = "GetFileList",urlPatterns = "/getFileList")
 public class GetFileList extends HttpServlet {
 
+    /**
+     * 获取 用户名 参数，返回该用户网盘中存储的文件信息
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setCharacterEncoding("utf-8");

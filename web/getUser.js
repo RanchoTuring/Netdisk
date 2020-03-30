@@ -14,6 +14,14 @@ ajax.onreadystatechange=function(){
                 let len=data.files.length;
                 let table=document.getElementById("fileList");
                 for(let i=0;i<len;i++){
+
+                    let selectorTd=document.createElement("td");
+                    let selector=document.createElement("input");
+                    selector.setAttribute("type","radio");
+                    selector.setAttribute("name","filename");
+                    selector.setAttribute("value",data.files[i].filename);
+                    selectorTd.appendChild(selector);
+
                     let name=document.createElement("td");
                     name.appendChild(document.createTextNode(data.files[i].filename));
 
@@ -24,6 +32,8 @@ ajax.onreadystatechange=function(){
                     time.appendChild(document.createTextNode(data.files[i].time));
 
                     let row=document.createElement("tr");
+
+                    row.appendChild(selectorTd);
                     row.appendChild(name);
                     row.appendChild(size);
                     row.appendChild(time);
@@ -42,12 +52,6 @@ ajax.onreadystatechange=function(){
 //发给谁
 ajax.open("get","getUsername",true);
 ajax.send();
-
-
-
-
-
-
 
 
 function logout() {

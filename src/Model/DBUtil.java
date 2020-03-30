@@ -4,8 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * 数据库工具类
+ *
+ * 用来获取数据库连接
+ *
+ */
 
-//数据库工具类
+
 public class DbUtil {
     public static Connection connection=null;
 
@@ -19,7 +25,7 @@ public class DbUtil {
     }
 
     /**
-     * 用 数据库名 做参数调用该方法，返回一个创建好的数据库链接
+     * 用 数据库名 做参数调用该方法，返回一个创建好的数据库连接
      * @param db
      * @return Connection
      */

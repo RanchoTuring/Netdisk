@@ -49,12 +49,13 @@
     <div class="title">文件列表</div>
 
 
+    <form action="downloadFile" method="post">
+        <input type="submit" value="下载">
+        <table id="fileList" class="fileTable">
+            <tr class="tableHeader"><th></th><th>文件名称</th><th>文件大小</th><th>上传时间</th></tr>
+        </table>
 
-    <table id="fileList" class="fileTable">
-        <tr class="tableHeader"><th>文件名称</th><th>文件大小</th><th>上传时间</th></tr>
-
-    </table>
-
+    </form>
     <form action="upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file">
         <input type="submit" value="开始上传">
