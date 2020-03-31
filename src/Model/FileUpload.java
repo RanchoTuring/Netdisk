@@ -15,17 +15,10 @@ public class FileUpload extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setCharacterEncoding("utf-8");
+        //鉴权
 
-        String username=null;
         //提取用户名
-        Cookie[] cookies=request.getCookies();
-
-        for(Cookie cookie:cookies){
-            if("username".equals(cookie.getName())){
-                username=cookie.getValue();
-            }
-        }
+        String username=(String)request.getSession().getAttribute("username");
 
 
         //判断用户是否存在
@@ -56,9 +49,10 @@ public class FileUpload extends HttpServlet {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            response.getWriter().print(e.getMessage());
+            return;
         }
-
+        response.sendRedirect("disc.html");
     }
-
 
 }

@@ -28,20 +28,8 @@ public class GetFileList extends HttpServlet {
      * @throws IOException
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        request.setCharacterEncoding("utf-8");
-        response.setContentType("text/html;charset=utf-8");
-
-        String username=null;
-        //提取用户名
-        Cookie[] cookies=request.getCookies();
-
-        for(Cookie cookie:cookies){
-            if("username".equals(cookie.getName())){
-                username=cookie.getValue();
-            }
-        }
-
+        response.setContentType("text/html; charset=utf-8");
+        String username=(String)request.getSession().getAttribute("username");
         //判断用户是否存在
         if(username==null) {
             System.out.println("用户不存在");

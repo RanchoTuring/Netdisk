@@ -9,9 +9,6 @@ import java.io.IOException;
 
 @WebServlet(name = "getUsername",urlPatterns = "/getUsername")
 public class GetUsername extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.getWriter().print(request.getSession().getAttribute("username"));

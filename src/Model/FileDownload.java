@@ -16,18 +16,9 @@ import java.sql.Statement;
 @WebServlet(name = "FileDownload", urlPatterns = "/downloadFile")
 public class FileDownload extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
 
-        //处理cookie,获取用户名参数
-        String username=null;
-
-        Cookie[] cookies=request.getCookies();
-
-        for(Cookie cookie:cookies){
-            if("username".equals(cookie.getName())){
-                username=cookie.getValue();
-            }
-        }
+        //获取用户名参数
+        String username=(String)request.getSession().getAttribute("username");
 
         if(username==null){
             System.out.println("cookie 中 username 参数不存在");
@@ -51,8 +42,6 @@ public class FileDownload extends HttpServlet {
 
         try {
             Statement statement=connection.createStatement();
-
-
 
             ResultSet resultSet=statement.executeQuery(
                     "select filename,path from "+username+" where filename='"+filename+"';");
@@ -87,11 +76,7 @@ public class FileDownload extends HttpServlet {
             e.printStackTrace();
         }
 
-
-
-
     }
-
 
 }
 

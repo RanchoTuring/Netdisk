@@ -55,25 +55,8 @@ public class RegisterController extends HttpServlet {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }finally {
-
-
-
-
         }
 
-
-
-
-
-
-
-        //2.存
-
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }

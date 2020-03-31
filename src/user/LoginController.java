@@ -32,6 +32,7 @@ public class LoginController extends HttpServlet {
             Statement statement=connection.createStatement();
             ResultSet resultSet=statement.executeQuery("select count(*) from user where username=\""+username+"\" and password=\""+password+"\";");
 
+
             //遍历
             while (resultSet.next()){
                 if(resultSet.getInt("count(*)")==0){
@@ -51,7 +52,4 @@ public class LoginController extends HttpServlet {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }

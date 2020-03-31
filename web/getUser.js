@@ -3,7 +3,7 @@ ajax.onreadystatechange=function(){
     if(ajax.readyState==4 && ajax.status==200){
         //做什么
         document.getElementById("username").innerText=ajax.responseText;
-        document.cookie="username="+ajax.responseText;
+      //  document.cookie="username="+ajax.responseText;
 
         //拉取文件列表
         let ajaxfl=new XMLHttpRequest();

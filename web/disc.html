@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
+        <meta charset="UTF-8">
+<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>-->
     <title>在线网盘</title>
     <script src="getUser.js"></script>
-	 <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css"/>
     <style>
         .card {
             position: absolute;
@@ -18,21 +19,34 @@
             box-shadow: #111111 1px 1px 10px;
             overflow: hidden;
         }
-        .title {
-            justify-content: center;
-            font-size: 25px;
-            font-weight: bold;
-            display: flex;
-            margin: 25px auto;
-            color:#64b5f6;
-        }
-        .fileTable{
+        table {
             width: 80%;
-            border: #d2dae2 solid;
             margin: auto;
             text-align: center;
+            border-radius: 10px;
+            border-collapse: collapse;
         }
-
+        tr{
+            border: solid 1px #bfbfbf;
+        }
+        th, td {
+            padding: 10px;
+        }
+        .toolbar {
+            /*border: solid;*/
+            margin-top: 30px;
+            margin-left: 10%;
+        }
+        button {
+            padding: 12px 50px;
+            border-radius: 5px;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            background: #0fbcf9;
+            color: white;
+            margin: 0 20px;
+        }
     </style>
 </head>
 <body>
@@ -42,24 +56,32 @@
     </div>
     <div class="menuItems">
         <text id="username" class="menuItem" href=""></text>
-        <text id="logout" class="menuItem" onclick="logout()"> 退出登录</text>
+        <text id="logout" class="menuItem" onclick="logout()">退出登录</text>
     </div>
 </div>
 <div class="card">
-    <div class="title">文件列表</div>
+    <div class="toolbar">
+        <button onclick='document.getElementById("ulFile").click()'>上传文件</button>
+        <button onclick='document.getElementById("dlBtn").click()'>下载</button>
+    </div>
+    <div class="filetable">
+        <form action="upload" method="post" enctype="multipart/form-data" style="display:none;">
+            <input id="ulFile" type="file" name="file" onchange='document.getElementById("ulBtn").click()'>
+            <input id="ulBtn" type="submit" value="开始上传">
+        </form>
+        <form action="downloadFile" method="post">
+            <input id="dlBtn" type="submit" value="下载" style="display:none;">
+            <table id="fileList">
+                <tr class="tableHeader">
+                    <th></th>
+                    <th>文件名称</th>
+                    <th>文件大小</th>
+                    <th>上传时间</th>
+                </tr>
+            </table>
 
-
-    <form action="downloadFile" method="post">
-        <input type="submit" value="下载">
-        <table id="fileList" class="fileTable">
-            <tr class="tableHeader"><th></th><th>文件名称</th><th>文件大小</th><th>上传时间</th></tr>
-        </table>
-
-    </form>
-    <form action="upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <input type="submit" value="开始上传">
-    </form>
+        </form>
+    </div>
 </div>
 </body>
 </html>
