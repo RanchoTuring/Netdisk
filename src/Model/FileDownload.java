@@ -1,5 +1,7 @@
 package model;
 
+import utils.Authentication;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -17,11 +19,8 @@ import java.sql.Statement;
 public class FileDownload extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //获取用户名参数
-        String username=(String)request.getSession().getAttribute("username");
 
-        if(username==null){
-            System.out.println("cookie 中 username 参数不存在");
+        if(!Authentication.isLogin(request)){
             return;
         }
 
@@ -44,7 +43,8 @@ public class FileDownload extends HttpServlet {
             Statement statement=connection.createStatement();
 
             ResultSet resultSet=statement.executeQuery(
-                    "select filename,path from "+username+" where filename='"+filename+"';");
+                    "select filename,path from "+request.getSession().getAttribute("username")+
+                            " where filename='"+filename+"';");
 
             String path=null;
             while (resultSet.next()){

@@ -1,5 +1,7 @@
 package model;
 
+import utils.Authentication;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -15,15 +17,7 @@ public class FileUpload extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //鉴权
-
-        //提取用户名
-        String username=(String)request.getSession().getAttribute("username");
-
-
-        //判断用户是否存在
-        if(username==null) {
-            System.out.println("用户不存在");
+        if(!Authentication.isLogin(request)){
             return;
         }
 
@@ -45,7 +39,7 @@ public class FileUpload extends HttpServlet {
 
         try {
             Statement statement=connection.createStatement();
-           statement.execute("insert into "+username+" values(0,'"+filename+"',"+part.getSize()+",now(),'"+path+"');");
+           statement.execute("insert into "+request.getSession().getAttribute("username")+" values(0,'"+filename+"',"+part.getSize()+",now(),'"+path+"');");
 
         } catch (SQLException e) {
             e.printStackTrace();

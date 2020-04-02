@@ -1,5 +1,7 @@
 package api;
 
+import utils.Authentication;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +18,8 @@ import java.io.IOException;
 public class DelUsername extends HttpServlet {
 
     /**
-     * 接收 用户名 参数，在会话中删除该用户名，退出登录
+     * 接收 用户名 参数，与会话中保存的用户名对比
+     * 两者一致时，销毁会话对象，退出登录
      * @param request
      * @param response
      * @throws ServletException
@@ -24,11 +27,12 @@ public class DelUsername extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        if(!Authentication.isLogin(request)){
+            return;
+        }
         String usernamePara=request.getParameter("username");
-        System.out.print("用户"+usernamePara+"请求删除用户：");
 
         String sessionUsername=(String)request.getSession().getAttribute("username");
-        System.out.println(sessionUsername);
 
         if(usernamePara.equals(sessionUsername)){
             request.getSession().invalidate();
