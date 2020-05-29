@@ -32,7 +32,7 @@ public class DbUtil {
     public static Connection getConnection(String db) {
         try {
             //获得数据库链接
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:2333/" + db + "?serverTimezone=Asia/Shanghai", "root", "");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db + "?serverTimezone=Asia/Shanghai", "root", "");
         } catch (SQLException e) {
             e.printStackTrace();
         }

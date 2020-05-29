@@ -10,7 +10,17 @@ import java.io.IOException;
 @WebServlet(name = "getUsername",urlPatterns = "/getUsername")
 public class GetUsername extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {
+        response.setContentType("text/html;charset=utf-8");
         response.getWriter().print(request.getSession().getAttribute("username"));
+
+        //Jedis jedis =new Jedis();
+        //jedis.set("xx","yyy");
+        //jedis.zrangebyscore
+
+
     }
 }
+
+
+

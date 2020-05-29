@@ -40,7 +40,10 @@ public class RegisterController extends HttpServlet {
         DbUtil.execute("insert into user values(0,\"" + username + "\",\"" + password + "\");");
 
         //用户创建成功后，为其创建文件表
-        DbUtil.execute("create table " + username + "(id int auto_increment not null,filename varchar(50) not null,filesize long not null,time timestamp default current_timestamp,path varchar(100) not null,primary key(id));");
+        DbUtil.execute("create table " + username + "(id int auto_increment not null,filename varchar(50) not null," +
+                "filesize bigint not null,time timestamp default current_timestamp,path varchar(100) not null,primary key(id));");
+
+        //filesize long    bigint
 
         System.out.println("ok");
     }

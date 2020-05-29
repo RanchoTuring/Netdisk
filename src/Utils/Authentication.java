@@ -1,6 +1,7 @@
 package utils;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 
 /**
@@ -15,7 +16,7 @@ public class Authentication {
      */
     public static boolean isLogin(HttpServletRequest request){
         String username=(String)request.getSession().getAttribute("username");
-
+        
         //判断用户是否存在
         return username != null;
     }
